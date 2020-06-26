@@ -1,8 +1,8 @@
-# Migration_Turkey
+# Migration Turkey
 This repo contains the dataset and the MATAB code that generates the results reported in the paper entitled
 "A model of dynamic migration networks: Explaining Turkey's inter-provincial migration flows"
 
-The code way created and run in MATLAB 2020a.
+The code was created and run in MATLAB 2020a.
 
 The script "main_migration.m" runs the experiments for three different models.
 
