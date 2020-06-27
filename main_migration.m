@@ -44,7 +44,7 @@ if ~exist(Outputdirname, 'dir')
 end
 set(0,'DefaultAxesTitleFontWeight','normal');
 
-%% load the data from the data files
+%% load the data. (See the code in Datafiles to see how this dataset is compiled.)
 load('Datafiles/All_Data_Migration');
 
 N = 81; % number of provinces
