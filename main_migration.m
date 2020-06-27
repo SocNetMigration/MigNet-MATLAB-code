@@ -45,18 +45,21 @@ end
 set(0,'DefaultAxesTitleFontWeight','normal');
 
 %% load the data from the data files
-load('Datafiles/external_data', 'ilmesafe_abc_abc', 'Iller');
-[Election2004, Election2009, Election2014] = import_election;
-[GDP, GDP_years] = import_gdp;
-[Population, Population_years] = import_population;
-[Migration, Migration_years] = import_migration;
-% NAN cells in the migration data are converted to 0.
-Migration(isnan(Migration)) = 0;
-[Unemployment, Unemployment_years] = import_unemployment;
-[AKP, AKP_years] = import_AKP;
-[Kurd] = import_Kurd;
-[Betweenness, Betweenness_years] = import_betweenness;
-[Correlations, Correlations_years] = import_correlations;
+load('All_Data_Migration');
+
+% Use this part to load all the data one-by-one, however it is not needed
+% load('Datafiles/external_data', 'ilmesafe_abc_abc', 'Iller');
+% [Election2004, Election2009, Election2014] = import_election;
+% [GDP, GDP_years] = import_gdp;
+% [Population, Population_years] = import_population;
+% [Migration, Migration_years] = import_migration;
+% % NAN cells in the migration data are converted to 0.
+% Migration(isnan(Migration)) = 0;
+% [Unemployment, Unemployment_years] = import_unemployment;
+% [AKP, AKP_years] = import_AKP;
+% [Kurd] = import_Kurd;
+% [Betweenness, Betweenness_years] = import_betweenness;
+% [Correlations, Correlations_years] = import_correlations;
 
 N = 81; % number of provinces
 
