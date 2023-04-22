@@ -23,7 +23,7 @@ The MATLAB code for this algorithm is **MCMC_Migration.m**. To use this code for
 
 The Matlab function is the form
 
-*[Theta_samp] = MCMC_Migration(Y, U, V, Z, M, theta_init, prop_params, prior_params, year_vec, model_type)*
+*Theta_samp = MCMC_Migration(Y, U, V, Z, year_vec, K0, d0, M)*
 
 Input data contains the migration counts and the one-way and two-way external factors regarding N provinces for T years.
  
@@ -34,29 +34,11 @@ $U_{t}(k, i)$: the value of the i'th feature of the i'th migration-sending provi
 - *V*: a $T \times 1$ cell array, each cell contains a $K_{2} \times N$ matrix $V_{t}$ <br> 
 $V_{t}(k, j)$: the value of the k'th feature of the $i$'th migration-receiving province.
 - *Z:* a $T \times 1$ cell array, each cell contains a $Z_{t}$ of size $N \times N \times L$ matrix <br> 
-$Z_{t}(i, j, l)$: the value for the $l$'th feature of provinces $i, j$
-- *M*: number of MCMC iterations
-- *theta_init* is a cell of initial theta values. It is in the form $\{\theta_{1}, \theta_{2}, \theta_{3}, \theta_{4}, \theta_{0}, \mu_{0}, \Sigma_{0} \}$
-  where
-  - $\theta_{1}, \theta_{2}, \theta_{3}$ are the coefficients for the $U$-, $V$-, and $Z$- factors, respectively,
-  - $\theta_{4}$ is the parameter that controls the amount of correlation between the counts in the Dirichlet-multinomoal distribution
-  - $\theta_{0} = [\theta_{0}(1), \ldots, \theta_{0}(N)]$ is a $K_{0} \times N$ matrix, whose i'th column is the baseline probability parameter of the $i$'th origin <br> 
-  - Each column of theta0 is assumed to have a normal distribution with
-    - mean $\mu_{0}$, a $K_{0} \times 1$ mean vector for $\theta_{0}$, and
-    - covariance $\Sigma_{0}$, a $K_{0} \times K_{0}$ covariance matrix. Those two moments are also random.
-- *sigma_prop* is a $1 \times 5$ cell whose members are
-  - $K_{1} \times 1$ vector of proposal stds for the random walk MH update for $\theta_{1}$
-  - $K_{2} \times 1$ vector of proposal stds for the random walk MH update for $\theta_{2}$
-  - $L \times 1$ vector of proposal stds for the random walk MH update for $\theta_{3}$
-  - a scalar proposal std for the random walk MH update for $\theta_{4}$.
-  - $K_{0} \times 1$ vector of proposal stds for the random walk MH update for each vector in $\theta_{0}$.
-
-- *prior_params* is a struct with the following members:
-  -*prior_params.prior_var_theta*: a cell of $4$ elements and the elements are the diagonals of the diagonal prior covariance matrices for $\theta_{1}$, $\theta_{2}$, $\theta_{3}$, $\theta_{4}$, respectively.
-  - *prior_params.mu0_mean*, *prior_params.mu0_Cov*: mean and covariance of the normal distribution assigned to $\mu_{0}$ as its prior
-  - *prior_params.nu0*, *prior_params.Psi0*: The dof and the $K_{0} \times K_{0}$ scale matrix of inverse-Wishart distribution assigned to $\Sigma_{0}$ as its prior.
- 
+$Z_{t}(i, j, l)$: the value for the $l$'th feature of provinces $i, j$ 
 + *year_vec*: This is the vector of years that correspond to time steps $1, \ldots, T$
++ K0: the (order+1) for the polynomial for the baseline probability parameter 
++ d0: number of baseline parameters: $1$ for common baseline and $N$ for a baseline parameter for each province
++ *M*: number of MCMC iterations 
 
 Output is the a $M \times D$ matrix of samples from the MCMC. Each column (sample) is formed as <br>
  $[\theta_{1}, \theta_{2}, \theta_{3}, \theta_{4}, \text{vec}(\theta_{0}), \mu_{0},  \text{vec}(\Sigma_{0})]$
