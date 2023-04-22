@@ -5,7 +5,7 @@ This repo contains the dataset and the code that generates the results reported 
 "*A model of dynamic migration networks: Explaining Turkey's inter-provincial migration flows*"
 
 + The script **main_migration.m** runs the experiments for real data. <br> 
-+ The script "**main_migration_artificial_data.m** runs the experiments for simulated data. <br> 
++ The script **main_migration_artificial_data.m** runs the experiments for simulated data. <br> 
 
 The real data are contained in the files in the directory "Inputfies". The main script automatically imports them suitably.
 
@@ -18,7 +18,7 @@ The model has a distinct intercept and a time slope parameter for each province;
 
 Details for those models can be found in the paper.
 
-# Guides for using the code for other data sets
+## Guides for using the code for other data sets
 **Algorithm 1** in the paper is an Metropolis-within-Gibbs type MCMC method to estimate the parameters of the Dirichlet-Multinomial model.
 
 The MATLAB code for this algorithm is **MCMC_Migration.m**. To use this code for other data sets, the data must be converted in a certain format. Below are the details of that format.
@@ -40,12 +40,12 @@ $Z_{t}(i, j, l)$: the value for the $l$'th feature of provinces $i, j$
 - *M*: number of MCMC iterations
 - *theta_init* is a cell of initial theta values. It is in the form $\{\theta_{1}, \theta_{2}, \theta_{3}, \theta_{4}, \theta_{0}, \mu_{0}, \Sigma_{0} \}$
   where
-  - $\theta_{1}, \theta_{2}, \theta_{3}$ are the coefficients for the $U-$, $V-$, and $Z-$ factors, respectively,
+  - $\theta_{1}, \theta_{2}, \theta_{3}$ are the coefficients for the $U$-, $V$-, and $Z$- factors, respectively,
   - $\theta_{4}$ is the parameter that controls the amount of correlation between the counts in the Dirichlet-multinomoal distribution
   - $\theta_{0} = [\theta_{0}(1), \ldots, \theta_{0}(N)]$ is a $K_{0} \times N$ matrix, whose i'th column is the baseline probability parameter of the $i$'th origin <br> 
-  - Each column of theta0 is assumed to have a normal distribution with <br> 
-    - mean $\mu_{0}$, a $K_{0} \times 1$ mean vector for $\theta_{0}$, and <br> 
-    - covariance $\Sigma_{0}$, a $K_{0} x $K_{0}$ covariance matrix. Those two moments are also random.
+  - Each column of theta0 is assumed to have a normal distribution with
+    - mean $\mu_{0}$, a $K_{0} \times 1$ mean vector for $\theta_{0}$, and
+    - covariance $\Sigma_{0}$, a $K_{0} \times K_{0}$ covariance matrix. Those two moments are also random.
 - *sigma_prop* is a $1 \times 5$ cell whose members are
   - $K_{1} \times 1$ vector of proposal stds for the random walk MH update for $\theta_{1}$
   - $K_{2} \times 1$ vector of proposal stds for the random walk MH update for $\theta_{2}$
@@ -61,5 +61,5 @@ $Z_{t}(i, j, l)$: the value for the $l$'th feature of provinces $i, j$
 + *year_vec*: This is the vector of years that correspond to time steps $1, \ldots, T$
 
 Output is the a $M \times D$ matrix of samples from the MCMC. Each column (sample) is formed as <br>
- $[\theta_{1}; \theta_{2}; \theta_{3}; \theta_{4}; \text{vec}(\theta_{0}), \mu_{0},  \text{vec}(\Sigma{0})]$
+ $[\theta_{1}; \theta_{2}; \theta_{3}; \theta_{4}; \text{vec}(\theta_{0}), \mu_{0},  \text{vec}(\Sigma_{0})]$
  
