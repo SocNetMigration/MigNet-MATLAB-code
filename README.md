@@ -44,7 +44,7 @@ Outputs are as follows <br>
  $[\theta_{1}, \theta_{2}, \theta_{3}, \theta_{4}, \text{vec}(\theta_{0}), \mu_{0},  \text{vec}(\Sigma_{0})]$
 + *range_theta*: The range information of those components. For example, the location of $\mu_{0}$ in one column of *Theta_samp* is *range_theta{6}* (since it is the 6'th component of $\theta$.)
 
-### Testing
+### Prediction (Testing)
 The outputs of the function can be used on the testing data to perform prediction by using the following Matlab code
 
 *[Y_pred, log_Y_pred, Prop_pred] = pred_migration(P, U, V, Z, year_vec, Thetas, range_theta)*
