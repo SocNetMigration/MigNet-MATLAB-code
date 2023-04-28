@@ -30,7 +30,6 @@ function [Y_pred, log_Y_pred, Prop_pred] = pred_migration(P, U, V, Z, year_vec, 
 % 
 % year_vec: This is the vector of years that correspond to time steps 1:T
 % 
-% Sinan Yildirim
 % Last update: 22 April 2023
 
 % number of years
