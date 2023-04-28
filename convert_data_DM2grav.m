@@ -24,7 +24,6 @@ function [X_g, Y_g] = convert_data_DM2grav(U, V, Z, Y, K0, theta0_common)
 % theta0_common: set to 1 for a common baseline probability parameter, set to 0
 % for a distinct baseline probability parameter per province.
 % 
-% Sinan Yildirim
 % 22.04.2023
 
 T = length(Y);
