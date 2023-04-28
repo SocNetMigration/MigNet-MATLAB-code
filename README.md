@@ -22,7 +22,7 @@ The MATLAB code for this algorithm is **MCMC_Migration.m**. To use this code for
 
 The Matlab function is the form
 
-*[Theta_samp, range_theta] = MCMC_Migration(Y, U, V, Z, year_vec, K0, theta0_common, M)*
+*[Theta_samp, range_theta] = MCMC_Migration(Y, U, V, Z, year_vec, K0, theta0_common, M, theta_init)*
 
 Input data contains the migration counts and the one-way and two-way external factors regarding N provinces for T years.
  
@@ -38,6 +38,7 @@ $Z_{t}(i, j, l)$: the value for the $l$'th feature of provinces $i, j$
 + *K0*: the (order+1) for the polynomial for the baseline probability parameter 
 + *theta0_common*: set to $1$ for common baseline parameter, set to 0 for a distinct baseline parameter for each province
 + *M*: number of MCMC iterations 
++ *theta_init* (optional): Initial value of $\theta$. This is an optional input; if not entered, it is set to a default value inside the function.
 
 Outputs are as follows <br>
 + *Theta_samp*: An $M \times D$ matrix of samples from the MCMC. Each column (sample) is formed as <br>
