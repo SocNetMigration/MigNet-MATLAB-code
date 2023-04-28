@@ -1,6 +1,6 @@
 # Code package for the paper <br> "A model of dynamic migration networks: Explaining Turkey's inter-provincial migration flows"
 
-This repo contains the dataset and the code that generates the results reported in the paper entitled
+This repository contains the dataset and the code that generates the results reported in the paper entitled
 "*A model of dynamic migration networks: Explaining Turkey's inter-provincial migration flows*"
 
 + The script **main_migration.m** runs the experiments for real data.
