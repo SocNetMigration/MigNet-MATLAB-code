@@ -35,7 +35,7 @@ function [Theta_samp, range_theta] = MCMC_migration(Y, U, V, Z, year_vec, K0, th
 % 
 % [theta1; theta2; theta3; theta4; theta0(:), theta0_mu, theta0_Cov(:)]
 % 
-% Sinan Yildirim, 22 April 2023
+% 22 April 2023
 
 %% Get the dimensions
 T = length(Y);
